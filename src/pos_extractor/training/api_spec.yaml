@@ -1,0 +1,71 @@
+openapi: 3.1.1
+info:
+  title: Train Service API
+  version: 1.0.0
+  description: API for uploading or updating the rule-based categorization.
+
+paths:
+  /train:
+    post:
+      tags:
+        - Train
+      summary: Load or update custom POS rules.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainRequest'
+      responses:
+        '200':
+          description: Confirmation message
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainResponse'
+        '400':
+          description: Bad request — invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    TrainRequest:
+      type: object
+      properties:
+        rules_csv_path:
+          type: string
+      required:
+        - rules_csv_path
+
+    TrainResponse:
+      type: object
+      properties:
+        status:
+          type: string
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
+      required:
+        - error

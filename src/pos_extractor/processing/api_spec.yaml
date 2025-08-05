@@ -1,0 +1,12 @@
+openapi: 3.1.1
+info:
+  title: Prepare Service API
+  version: 1.0.0
+  description: API for preparing document input (reading and chunking).
+
+paths:
+  /prepare:
+
+  /validate:
+
+components:

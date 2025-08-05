@@ -1,0 +1,17 @@
+# YAML Boilerplate Example
+
+openapi: 3.1.1
+version: 1.0
+name: Scratch_work
+description: This is a sample YAML Boilerplate.
+settings:
+  enabled: true
+  debug: false
+  timeout: 30
+items:
+  - id: 1
+    name: ItemOne
+    active: true
+  - id: 2
+    name: ItemTwo
+    active: false
