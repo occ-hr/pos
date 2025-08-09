@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ------------------------------
 # Core Python
 # ------------------------------
@@ -76,3 +77,81 @@ pytest.ini
 scripts/*.out
 scripts/*.log
 Naming.xlsx
+=======
+# ------------------------------
+# Core Python
+# ------------------------------
+__pycache__/
+*.py[cod]
+*.so
+
+# ------------------------------
+# Virtual environments
+# ------------------------------
+.venv/
+
+# ------------------------------
+# IDE / Editor settings
+# ------------------------------
+.vscode/
+*.code-workspace
+
+# ------------------------------
+# Build artifacts
+# ------------------------------
+dist/
+build/
+*.egg-info/
+wheelhouse/
+
+# ------------------------------
+# Documentation (build output and working files)
+# ------------------------------
+docs/_build/
+docs/Dev_Notes.md
+docs/adr/
+docs/diagrams/
+docs/tutorials/*.tmp
+scripts/*
+
+# ------------------------------
+# Data and intermediate files
+# ------------------------------
+data/
+
+# ------------------------------
+# Testing
+# ------------------------------
+tests/
+.pytest_cache/
+.mypy_cache/
+coverage.xml
+htmlcov/
+
+# ------------------------------
+# Scratch / temp / logs
+# ------------------------------
+scratch_work/
+*.logs
+*.prof
+out.txt
+
+# ------------------------------
+# OS-generated files
+# ------------------------------
+desktop.ini
+.DS_Store
+Thumbs.db
+
+# ------------------------------
+# Project-specific
+# ------------------------------
+project_structure.txt
+Learned_Notes.md
+asp3.code-workspace
+mypy.ini
+pyrightconfig.json
+pytest.ini
+scripts/*.out
+scripts/*.log
+>>>>>>> origin/main
