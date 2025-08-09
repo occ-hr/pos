@@ -1,0 +1,134 @@
+openapi: 3.1.1
+info:
+  title: Prepare Service API
+  version: 1.0.0
+  description: API for preparing document input (reading and chunking).
+
+paths:
+  /prepare:
+    post:
+      tags:
+        - Prepare
+      summary: Read input files and chunk their contents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrepareRequest'
+      responses:
+        '200':
+          description: List of text chunks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrepareResponse'
+        '400':
+          description: Invalid request format
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /validate:
+    post:
+      tags:
+        - Prepare
+      summary: Validate file paths and category file.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateRequest'
+      responses:
+        '200':
+          description: Validation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateResponse'
+        '400':
+          description: Invalid request format
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    PrepareRequest:
+      type: object
+      properties:
+        input_paths:
+          type: array
+          items:
+            type: string
+        chunk_size:
+          type: integer
+      required:
+        - input_paths
+    
+    PrepareResponse:
+      type: object
+      properties:
+        chunks:
+          type: array
+          items:
+            type: string
+
+    ValidateRequest:
+      type: object
+      properties:
+        input_paths:
+          type: array
+          items:
+            type: string
+        category_file_path:
+          type: string
+      required:
+        - input_paths
+        - category_file_path
+
+    ValidateResponse:
+      type: object
+      properties:
+        valid:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: string
+    
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        details:
+          type: array
+          items:
+            type: string

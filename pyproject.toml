@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pos-extractor"
+version = "0.1.0"
+description = "A modular NLP pipeline for POS tagging and terminology extraction"
+authors = [
+    { name = "Himu Rami",
+      email = "himu.r@outlook.com"}
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = [
+    "spacy>=3.7.0",
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.29.0",
+    "pydantic>=2.5.2",
+    "python-multipart>=0.0.9",
+    "typer>=0.12.3",
+    "jinja2",                     # GUI templating (if any)
+    "aiofiles",                   # Static file support in FastAPI
+    "pyyaml",                     # For config/*.yaml
+    "rich",                       # For CLI UX, optional
+    # Add anything else used in your scripts or pipelines
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "httpx",             # for testing FastAPI endpoints
+    "mypy",
+    "black",
+    "ruff",
+    "types-PyYAML"
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["scratch_work*"]
+
+[tool.setuptools.package-data]
+pos_extractor = [
+    "py.typed",
+    "config/*.yaml", 
+    "ui/assets/**/*"
+    ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+exclude = "scratch_work"
+
+[tool.ruff]
+line-length = 88
+src = ["src"]
+exclude = ["scratch_work"]
