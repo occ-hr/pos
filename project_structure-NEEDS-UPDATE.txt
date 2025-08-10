@@ -1,0 +1,102 @@
+asp3/                              # ROOT DIRECTORY
+    .venv/                          # The dev environment directory [exclude from package]
+        ...
+    data/                           # The data directory [exclude from package]
+		...
+    docs/                           # The package documentation directory
+        API_Reference.md
+        Architecture.md
+        configuration.md
+        index.md
+        adr/
+            0000-project_and_production_workloads.md
+            0001-tech_and_tools.md
+            0002--nlp_tool.md
+            0002--rest-api-openapi.md
+            0003--concurrency-model.md        
+        diagrams/
+            Compo_Diag_00.pdf
+            Compo_Diag_00_companion.pdf    
+        tutorials/
+                training.md         
+    scripts/                        # The helpful scripts directory [exclude from package]
+        convert_csv_to_json.py
+    scratch_work/                   # The scratch_work directory [exclude from package]
+        ...
+    src/                            # The source directory
+        pos_extractor/
+            config/ 				# 
+                default.yaml
+            entities/ 				# 
+                __init__.py
+				base.py
+                category_map.py
+                document.py
+				job_spec.py
+                token.py
+            gui/ 					# 
+
+            infrastructure/ 		# 
+                messaging/ 			#
+				
+            interfaces/ 			#
+                __init__.py
+                i_builder.py
+                i_chunker.py
+				i_communicator.py
+                i_extractor.py
+                i_loader.py
+                i_runner.py
+                i_validator.py
+            preparing/ 				# A pipeline component
+                __init__.py
+                api_spec.yaml
+                chunker.py
+                extractor.py
+                validator.py            
+            processing/ 			# A pipeline component
+                __init__.py
+                api_spec.yaml
+                builder.py
+                loader.py
+                runner.py
+            training/ 				# A pipeline component
+                __init__.py
+                api_spec.yaml
+            ui/ 					# 
+                __init__.py
+                assets/ 			# 
+                    images/ 		#
+                        logo.png    
+            __init__.py
+			container.py
+            main.py
+			py.typed
+		pos_extractor.egg-info/ 	#
+			...
+	tests/                          # The tests directory [exclude from package]
+        gui/ 						#            
+        preparing/ 					# 
+            test_chunker.py
+            test_extractor.py
+            test_validator.py            
+        processing/
+            test_builder.py
+            test_loader.py
+            test_runner.py                
+        training/ 					# 
+			
+    .gitignore                      # the .gitignore file
+    asp3.code-workspace             # the IDE workspace file [exclude from package]
+    CHANGELOG.md                    # the CHANGELOG file
+    CODE_OF_CONDUCT.md              # the CODE_OF_CONDUCT file
+    CONTRIBUTING.md                 # the CONTRIBUTING file
+    desktop.ini                     # the OS desktop initialization file [exclude from package]
+    LICENSE                         # the LICENSE file
+    mypy.ini                        # the mypy initialization file [exclude from package]
+    pyproject.toml                  # the project toml file
+    pyrightconfig.json              # the pyrightconfig JSON file [exclude from package]
+    pytest.ini                      # the pytest initialization file [exclude from package]
+    README.md                       # the package README.md file
+    requirements.txt                # the Python package requirements file
+    SECURITY.md                     # the SECURITY file

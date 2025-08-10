@@ -1,4 +1,5 @@
-<<<<<<< HEAD
+# src/pos_extractor/preparing/api_spec.yaml
+# preparing stage API specs.
 openapi: 3.1.1
 info:
   title: Prepare Service API
@@ -16,32 +17,32 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PrepareRequest'
+              $ref: "#/components/schemas/PrepareRequest"
       responses:
-        '200':
+        "200":
           description: List of text chunks
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PrepareResponse'
-        '400':
+                $ref: "#/components/schemas/PrepareResponse"
+        "400":
           description: Invalid request format
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        '404':
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
           description: Resource not found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        '500':
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
           description: Server error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
   /validate:
     post:
       tags:
@@ -52,32 +53,32 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ValidateRequest'
+              $ref: "#/components/schemas/ValidateRequest"
       responses:
-        '200':
+        "200":
           description: Validation result
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ValidateResponse'
-        '400':
+                $ref: "#/components/schemas/ValidateResponse"
+        "400":
           description: Invalid request format
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        '404':
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
           description: Resource not found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        '500':
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
           description: Server error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
 components:
   schemas:
@@ -92,7 +93,7 @@ components:
           type: integer
       required:
         - input_paths
-    
+
     PrepareResponse:
       type: object
       properties:
@@ -123,7 +124,7 @@ components:
           type: array
           items:
             type: string
-    
+
     ErrorResponse:
       type: object
       properties:
@@ -133,16 +134,3 @@ components:
           type: array
           items:
             type: string
-=======
-openapi: 3.1.1
-info:
-  title: Prepare Service API
-  version: 1.0.0
-  description: API for preparing document input (reading and chunking).
-
-paths:
-  /prepare:
-  /validate:
-
-components:
->>>>>>> origin/main

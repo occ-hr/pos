@@ -1,0 +1,2 @@
+# src/pos_extractor/infrastructures/__init__py
+# marks infrastructure (provides technical infrastructure) as a subpackage.

@@ -1,3 +1,6 @@
+# src/pos_extractor/training/api_spec.yaml
+# training stage API specs.
+
 openapi: 3.1.1
 info:
   title: Train Service API
@@ -15,32 +18,32 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TrainRequest'
+              $ref: "#/components/schemas/TrainRequest"
       responses:
-        '200':
+        "200":
           description: Confirmation message
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TrainResponse'
-        '400':
+                $ref: "#/components/schemas/TrainResponse"
+        "400":
           description: Bad request — invalid input
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        '404':
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
           description: Resource not found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        '500':
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
           description: Internal server error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
 
 components:
   schemas:

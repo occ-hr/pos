@@ -1,0 +1,2 @@
+# src/api/py.typed
+# signals type checkers that this package ships with type hints.
